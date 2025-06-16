@@ -49,26 +49,5 @@
   </main>
 
   <script src="sub/js/sidebar.js" defer></script>
-  <script src="sub/js/index.js" defer></script>
-  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
-  <!-- Load gallery markup then gallery JS -->
-  <script>
-    fetch('sub/youtube-gallery.html')
-      .then(response => response.text())
-      .then(html => {
-        document.getElementById('youtube-gallery-container').innerHTML = html;
-      })
-      .then(() => {
-        // After markup is loaded, load the gallery JS
-        const script = document.createElement('script');
-        script.src = 'sub/youtube-gallery.js';
-        document.body.appendChild(script);
-      })
-      .catch(err => {
-        console.error('Failed to load YouTube gallery:', err);
-        document.getElementById('youtube-gallery-container').innerText = 'Failed to load gallery.';
-      });
-  </script>
 </body>
 </html>

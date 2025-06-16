@@ -22,7 +22,7 @@
             <li><a href="#downloads">Downloads</a></li>
             <li><a href="#tournaments">Tournaments</a></li>
             <li><a href="#contact">Contact</a></li>
-            <li><a href="#srkade"><img src="images/assets/srkade/logo/SRKade.png" alt="SRKade Logo" style="height: 25px;" /></a></li>
+            <li><a href="srkade.html"><img src="images/assets/srkade/logo/SRKade.png" alt="SRKade Logo" style="height: 25px;" /></a></li>
           </ul>
         </nav>
       </aside>
@@ -84,25 +84,5 @@
 
   <script src="sub/sidebar.js" defer></script>
   <script src="script.js" defer></script>
-  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
-  <!-- Load gallery markup then gallery JS -->
-  <script>
-    fetch('sub/youtube-gallery.html')
-      .then(response => response.text())
-      .then(html => {
-        document.getElementById('youtube-gallery-container').innerHTML = html;
-      })
-      .then(() => {
-        // After markup is loaded, load the gallery JS
-        const script = document.createElement('script');
-        script.src = 'sub/youtube-gallery.js';
-        document.body.appendChild(script);
-      })
-      .catch(err => {
-        console.error('Failed to load YouTube gallery:', err);
-        document.getElementById('youtube-gallery-container').innerText = 'Failed to load gallery.';
-      });
-  </script>
 </body>
 </html>
