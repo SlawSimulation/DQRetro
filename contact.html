@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DQRetro Social Hub</title>
+  <link rel="stylesheet" href="sub/css/index.css" />
+  <link rel="stylesheet" href="sub/css/contact.css" />
+  <link rel="stylesheet" href="sub/css/scanlines.css" />
+  <link rel="stylesheet" href="sub/css/sidebar.css" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="crt-overlay"></div>
+  <div class="scanlines"></div>
+    <button id="sidebar-toggle" aria-label="Toggle sidebar" aria-expanded="false">☰</button>
+      <aside class="sidebar">
+        <nav>
+          <ul class="nav-links">
+            <li><a href="index.html"><img src="images/assets/dqretro/logo/DQ-Retro-Logo-Blue-Light-(SRKADE).png" alt="DQRetro Logo" style="height: 40px;" /></a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="tournaments.html">Tournaments</a></li>
+            <li><a href="downloads.html">Downloads</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="#srkade"><img src="images/assets/srkade/logo/SRKade.png" alt="SRKade Logo" style="height: 25px;" /></a></li>
+          </a>
+        </nav>
+      </aside>
+    </div>
+  </div>
+  <div class="center-header-container">
+    <header>
+    <img src="images/assets/dqretro/logo/DQ-Retro-Logo-Golden.png" alt="DQRetro Community Hub Logo" class="logo" />
+    </header>
+  </div>
+
+  <main class="contact-wrapper">
+      <h1>CONTACT THE DQRETRO TEAM</h1>
+
+      <form class="contact-form" action="https://formspree.io/f/your-form-id" method="POST">
+        <label for="name">NAME</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">EMAIL</label>
+        <input type="email" id="email" name="_replyto" required>
+
+        <label for="message">MESSAGE</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <button type="submit">SEND TRANSMISSION</button>
+      </form>
+
+      <p class="footer-note">💾 Expect a response via dial-up in 48 hours.</p>
+    </main>
+
+    <footer>
+    <p>© 2025 DQRetro Community Hub. All rights reserved.</p>
+    </footer>
+  </main>
+
+  <script src="sub/js/sidebar.js" defer></script>
+  <script src="sub/js/index.js" defer></script>
+</body>
+</html>

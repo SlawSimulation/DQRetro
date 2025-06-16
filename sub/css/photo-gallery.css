@@ -1,0 +1,23 @@
+.gallery-item {
+  display: inline-block;
+  margin: 10px;
+  text-align: center;
+  vertical-align: top;
+  max-width: 200px; /* adjust as needed */
+}
+
+.gallery-thumb {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 4px;
+  box-shadow: 0 0 6px rgba(0,0,0,0.2);
+}
+
+.caption {
+  font-size: 12px;
+  color: #ddd;
+  margin-top: 4px;
+  font-family: Arial, sans-serif;
+  user-select: none;
+}

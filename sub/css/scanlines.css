@@ -1,0 +1,73 @@
+/* Scanline overlay */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 220px;
+  height: 100vh;
+  background-color: #0a0a0a;
+  border-right: 2px solid #00ffea;
+  box-shadow:
+    inset 0 0 20px #00ffea,
+    2px 0 10px #00ffea;
+  padding-top: 2rem;
+  user-select: none;
+  letter-spacing: 0.15em;
+  overflow: hidden;
+  z-index: 10;
+  font-family: 'Press Start 2P', cursive, monospace;
+  color: #00ffea;
+  text-transform: uppercase;
+}
+
+.scanlines {
+  pointer-events: none;
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      rgba(0, 255, 234, 0.05) 0px,
+      rgba(0, 255, 234, 0.05) 1px,
+      transparent 2px,
+      transparent 4px
+    );
+  mix-blend-mode: overlay;
+  animation: scanlineFlicker 2.5s infinite alternate;
+  z-index: 5;
+}
+
+/* Flicker text animation */
+@keyframes flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    opacity: 1;
+    text-shadow:
+      0 0 5px #00ffea,
+      0 0 10px #00fff7;
+  }
+  20%, 22%, 24%, 55% {
+    opacity: 0.85;
+    text-shadow: none;
+  }
+}
+
+.sidebar nav ul li a {
+  animation: flicker 3s infinite;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+  color: #00ffea;
+  text-decoration: none;
+  font-size: 0.75rem;
+  display: block;
+  padding: 0.75rem 0.5rem;
+}
+
+/* Hover glow override */
+.sidebar nav ul li a:hover,
+.sidebar nav ul li a:focus {
+  color: #ff00ff;
+  text-shadow:
+    0 0 10px #ff00ff,
+    0 0 20px #ff00ff;
+  outline: none;
+  cursor: pointer;
+}

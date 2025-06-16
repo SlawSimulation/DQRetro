@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+body {
+  margin: 0;
+  font-family: 'Press Start 2P', monospace;
+  background: #000;
+  color: #0ff;
+  overflow-x: hidden;
+  line-height: 1.6;
+  position: relative;
+}
+
+.container {
+  padding: 20px;
+  max-width: 800px;
+  margin: auto;
+  z-index: 2;
+  position: relative;
+}
+
+header {
+  
+}
+
+.logo {
+  max-width: 300px; /* optional, control size */
+  height: auto;
+  display: inline-block;
+}
+
+section, footer {
+  margin-bottom: 5rem; /* Increase this value to add more space */
+}
+
+h1, h2, h3 {
+  color: #ffd900;
+  text-shadow: 0 0 5px #ffd900, 0 0 10px #0ff;
+}
+
+/*
+h1, h2 {
+  color: #ff00ff;
+  text-shadow: 0 0 5px #ff00ff, 0 0 10px #0ff;
+}
+  */
+
+a {
+  color: #0ff;
+  text-decoration: underline;
+}
+
+button {
+  background: #111;
+  border: 2px solid #0ff;
+  color: #0ff;
+  padding: 8px;
+  font-family: 'Press Start 2P', monospace;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #0ff;
+  color: #000;
+}
+
+.crt-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    rgba(0, 255, 255, 0.05),
+    rgba(0, 255, 255, 0.05) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+footer {
+  background-color: #0b0b0b;        /* Very dark, almost black */
+  color: #ffd900;                  /* Neon cyan glow */
+  text-align: center;
+  padding: 1.5em 0;
+  font-family: 'Press Start 2P', cursive, monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-shadow:
+    0 0 5px #ffd900,
+    0 0 10px #000000,
+    0 0 20px #ffd900,
+    0 0 30px #ffd900;
+  border-top: 2px solid #ffd900;
+  user-select: none;
+}
+
+footer a {
+  color: #ffd900;
+  text-decoration: none;
+  margin: 0 0.6em;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+footer a:hover,
+footer a:focus {
+  color: #ff00ff;                /* Neon pink on hover */
+  text-shadow:
+    0 0 10px #ff00ff,
+    0 0 20px #ff00ff,
+    0 0 30px #ff00ff;
+  outline: none;
+}
+
+footer p {
+  margin: 0.3em 0;
+}

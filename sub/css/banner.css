@@ -1,0 +1,44 @@
+.banner-slideshow {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  height: 300px;
+  overflow: hidden;
+  margin: 0 auto;
+  background: black;
+}
+
+.slides {
+  display: flex;
+  /* Remove fixed width */
+  height: 100%;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slides img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  flex: 0 0 100%; /* Each image takes full container width */
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  color: white;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 50%;
+  padding: 0 10px;
+  cursor: pointer;
+  z-index: 5;
+}
+
+.arrow.left {
+  left: 10px;
+}
+
+.arrow.right {
+  right: 10px;
+}

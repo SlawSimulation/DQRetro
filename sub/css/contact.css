@@ -1,0 +1,114 @@
+body {
+  background-color: black;
+  color: #00FF66;
+  font-family: 'Press Start 2P', monospace;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.scanlines {
+  pointer-events: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 255, 0, 0.05),
+    rgba(0, 255, 0, 0.05) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  z-index: 9999;
+}
+
+.contact-wrapper {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 30px;
+  border: 2px solid #00FF66;
+  background-color: #000;
+  text-align: center;
+  box-shadow: 0 0 20px #00FF66;
+}
+
+h1 {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  text-shadow: 0 0 5px #00ff66;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+label {
+  font-size: 0.7rem;
+  text-align: left;
+}
+
+input, textarea {
+  background: #001100;
+  border: 1px solid #00FF66;
+  color: #00FF66;
+  font-family: 'Press Start 2P', monospace;
+  padding: 10px;
+  font-size: 0.6rem;
+  width: 100%;
+  resize: none;
+}
+
+button {
+  background-color: #00FF66;
+  color: black;
+  border: none;
+  padding: 10px;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.6rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+button:hover {
+  background-color: #00cc55;
+  transform: scale(1.05);
+}
+
+.footer-note {
+  margin-top: 30px;
+  font-size: 0.55rem;
+  color: #00dd55;
+}
+
+@media (max-width: 600px) {
+  .contact-wrapper {
+    margin: 20px;
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 0.8rem;
+  }
+
+  input, textarea, button {
+    font-size: 0.5rem;
+  }
+
+  label {
+    font-size: 0.6rem;
+  }
+
+  .footer-note {
+    font-size: 0.5rem;
+  }
+}
+
+.center-header-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem 0; /* Adjust as needed */
+}
