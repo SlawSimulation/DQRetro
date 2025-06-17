@@ -1,1 +1,5 @@
-This is the DQRetro Community Webpage hosted on Github.io showing off our Projects. In collaboration with SRKade. Built by SlawPfo and contributing help from HarryCMathed.
+This is the DQRetro Community Webpage Showcase hosted on Github.io showing all of our Projects. 
+
+In collaboration with SRKade. Built by SlawPro and contributing help from HarryCMather.
+
+
