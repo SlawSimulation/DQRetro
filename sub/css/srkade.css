@@ -1,14 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
-/*body {
-  margin: 0;
-  font-family: 'Press Start 2P', monospace;
-  background: #000;
-  color: #0ff;
-  overflow-x: hidden;
-  line-height: 1.6;
-  position: relative;
-}*/
+/* ========== BASE STYLES ========== */
 body {
   margin: 0;
   background: #000;
@@ -25,43 +17,48 @@ body {
   position: relative;
 }
 
-.logo {
-  max-width: 300px; /* optional, control size */
-  height: auto;
-  display: inline-block;
+section,
+footer {
+  margin-bottom: 5rem;
 }
-
-section, footer {
-  margin-bottom: 5rem; /* Increase this value to add more space */
-}
-
-h1 {
-  font-family: 'Bebas Neue', sans-serif; 
-  color: #ffffff;
-}
-
-h2 {
-  font-family: 'Bebas Neue', sans-serif;
-  color: #ffffff; /* Replace this with your desired color */
-}
-
-h3 {
-  font-family: 'Press Start 2P', sans-serif;
-  color: #ffffff; /* Replace this with your desired color */
-}
-
-/*
-h1, h2 {
-  color: #ff00ff;
-  text-shadow: 0 0 5px #ff00ff, 0 0 10px #0ff;
-}
-  */
 
 a {
   color: #0ff;
   text-decoration: underline;
 }
 
+/* ========== HEADINGS ========== */
+h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  color: #ffffff;
+}
+
+h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  color: #ffffff;
+}
+
+h3 {
+  font-family: 'Press Start 2P', sans-serif;
+  color: #ffffff;
+}
+
+/* ========== IMAGES & LOGOS ========== */
+.logo {
+  max-width: 300px;
+  height: auto;
+  display: block;
+}
+
+.info-header {
+  max-width: 300px;
+  height: auto;
+  display: inline-block;
+}
+
+
+
+/* ========== BUTTON ========== */
 button {
   background: #111;
   border: 2px solid #0ff;
@@ -76,9 +73,11 @@ button:hover {
   color: #000;
 }
 
+/* ========== OVERLAY EFFECTS ========== */
 .crt-overlay {
   position: fixed;
-  top: 0; left: 0;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   background: repeating-linear-gradient(
@@ -91,9 +90,10 @@ button:hover {
   z-index: 1;
 }
 
+/* ========== FOOTER ========== */
 footer {
-  background-color: #0b0b0b;        /* Very dark, almost black */
-  color: #ffd900;                  /* Neon cyan glow */
+  background-color: #0b0b0b;
+  color: #ffd900;
   text-align: center;
   padding: 1.5em 0;
   font-family: 'Press Start 2P', cursive, monospace;
@@ -117,7 +117,7 @@ footer a {
 
 footer a:hover,
 footer a:focus {
-  color: #ff00ff;                /* Neon pink on hover */
+  color: #ff00ff;
   text-shadow:
     0 0 10px #ff00ff,
     0 0 20px #ff00ff,
