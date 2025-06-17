@@ -1,0 +1,44 @@
+// scripts/fetch-tournaments.js
+const fs = require('fs');
+const fetch = require('node-fetch'); // You need this package
+
+const API_KEY = process.env.STARTGG_API_KEY;
+
+const query = `
+  query TournamentsBySlug {
+    tournaments(query: {
+      perPage: 5
+      page: 1
+      filter: {
+        videogameIds: [1]  # Replace with real Tekken Ball ID
+        past: true
+        name: "Tekken Ball"
+      }
+    }) {
+      nodes {
+        name
+        slug
+        startAt
+      }
+    }
+  }
+`;
+
+fetch('https://api.start.gg/gql/alpha', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+    'Authorization': `Bearer ${API_KEY}`
+  },
+  body: JSON.stringify({ query })
+})
+  .then(res => res.json())
+  .then(data => {
+    fs.mkdirSync('./public/data', { recursive: true });
+    fs.writeFileSync('./public/data/tournaments.json', JSON.stringify(data.data.tournaments.nodes, null, 2));
+    console.log('✅ Tournament data saved.');
+  })
+  .catch(err => {
+    console.error('❌ Failed to fetch tournaments:', err);
+    process.exit(1);
+  });

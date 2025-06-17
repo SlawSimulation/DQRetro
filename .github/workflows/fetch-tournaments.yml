@@ -1,0 +1,34 @@
+name: Fetch Start.gg Tournament Data
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Runs daily at midnight UTC
+  workflow_dispatch:    # Allows manual trigger
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Fetch Tournaments
+        env:
+          STARTGG_API_KEY: ${{ secrets.STARTGG_API_KEY }}
+        run: node scripts/fetch-tournaments.js
+
+      - name: Commit and Push updated tournament data
+        run: |
+          git config user.name "Start.gg Data Bot"
+          git config user.email " start.gg-data@dqretro.com"
+          git add public/data/tournaments.json
+          git diff --cached --quiet || git commit -m "Update tournament data"
+          git push
