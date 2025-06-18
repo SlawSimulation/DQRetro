@@ -1,0 +1,23 @@
+[
+  {
+    "title": "Tekken 3",
+    "year": 1997,
+    "genre": "Fighting",
+    "platform": "Arcade / PS1",
+    "netplay": "Stable",
+    "description": "The classic 3D fighting game with fast gameplay and iconic characters.",
+    "image": "images/games/tekken/tekken3.png",
+    "setupLink": "setup/tekken3.html"
+  },
+  {
+    "title": "Mortal Kombat 2",
+    "year": 1993,
+    "genre": "Fighting",
+    "platform": "Arcade / Fightcade",
+    "netplay": "Unstable",
+    "description": "Blood, gore, and brutal fatalities made this a legendary fighting game.",
+    "image": "images/games/mortalkombat/mk2.png",
+    "setupLink": "setup/mk2.html"
+  }
+  // Add more entries here as needed
+]
