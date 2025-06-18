@@ -11,49 +11,46 @@
   <link rel="stylesheet" href="../../css/srkade.css" />
   <link rel="stylesheet" href="../../css/scanlines.css" />
   <link rel="stylesheet" href="../../css/sidebar.css" />
-  
 </head>
 <body>
   <div class="crt-overlay"></div>
   <div class="scanlines"></div>
-    <button id="sidebar-toggle" aria-label="Toggle sidebar" aria-expanded="false">☰</button>
-      <aside class="sidebar">
-        <nav>
-          <ul class="nav-links">
-            <li><a href="index.html"><img src="../../../images/assets/dqretro/logo/DQ-Retro-Logo-Blue-Light-(SRKADE).png" alt="DQRetro Logo" style="height: 40px;" /></a></li>
-            
-            <li><a href="gallery.html">Gallery</a></li>
-            <li><a href="tournaments.html">Tournaments</a></li>
-            <li><a href="downloads.html">Downloads</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="sub/pages/database/retrogamesdb.html">Retro Games Database</a></li>
-            <li><a href="srkade.html"><img src="../../../images/assets/srkade/logo/SRKade.png" alt="SRKade Logo" style="height: 25px;" /></a></li>
-          </a>
-        </li>
+
+  <button id="sidebar-toggle" aria-label="Toggle sidebar" aria-expanded="false">☰</button>
+  <aside class="sidebar">
+    <nav>
+      <ul class="nav-links">
+        <li><a href="../../../index.html"><img src="../../../images/assets/dqretro/logo/DQ-Retro-Logo-Blue-Light-(SRKADE).png" alt="DQRetro Logo" style="height: 40px;" /></a></li>
+        <li><a href="../../../gallery.html">Gallery</a></li>
+        <li><a href="../../../tournaments.html">Tournaments</a></li>
+        <li><a href="../../../downloads.html">Downloads</a></li>
+        <li><a href="../../../contact.html">Contact</a></li>
+        <li><a href="retrogamesdb.html">Retro Games Database</a></li>
+        <li><a href="../../../srkade.html"><img src="../../../images/assets/srkade/logo/SRKade.png" alt="SRKade Logo" style="height: 25px;" /></a></li>
       </ul>
     </nav>
   </aside>
-  </div>
-  </div>
-  <main class="container">
-  <div class="center-header-container">
-    <header>
-    <img src="../../../images/assets/srkade/logo/SRKade.png" alt="SRKade Logo" />
-    </header>
-  </div>
 
-    <section>
-    <div id="game-grid" class="game-grid">
-    <!-- Game cards inserted here by JS -->
+  <main class="container">
+    <div class="center-header-container">
+      <header>
+        <img src="../../../images/assets/srkade/logo/SRKade.png" alt="SRKade Logo" />
+      </header>
     </div>
+
+    <section class="search-wrapper">
+      <input type="text" id="game-search" placeholder="Search games..." class="game-search" />
+      <div id="game-grid" class="game-grid">
+        <!-- Game cards inserted here by JS -->
+      </div>
     </section>
 
     <footer>
-    <p>© 2025 SRKade. All rights reserved.</p>
+      <p>© 2025 SRKade. All rights reserved.</p>
     </footer>
   </main>
 
-  <script src="../../js/sidebar.js" defer></script>
-  <script src="../../js/retrogamesdb.js" defer></script>
+  <script src="../../../sub/js/sidebar.js" defer></script>
+  <script src="../../../sub/js/retrogamesdb.js" defer></script>
 </body>
 </html>

@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   async function loadGames() {
     try {
-      const response = await fetch('../../data/retrogamesdb.json'); // adjust path as needed
+      const response = await fetch('../../data/retrogamesdb.json'); // adjust if needed
       if (!response.ok) throw new Error('Failed to load retrogamesdb.json');
       games = await response.json();
       renderGames();
@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="game-info">${game.year} &bull; ${game.genre} &bull; ${game.platform}</div>
         <div class="game-info">Netplay: ${game.netplay}</div>
         <p class="game-description">${game.description}</p>
-        <a href="${game.setupLink}" class="setup-link" target="_blank" rel="noopener">Setup Instructions</a>
+        <a href="${game.wiki}" class="setup-link" target="_blank" rel="noopener">View Wiki</a>
       </article>
     `).join('');
   }
@@ -37,5 +37,5 @@ document.addEventListener('DOMContentLoaded', () => {
     renderGames(e.target.value);
   });
 
-  loadGames(); // Load and render on page load
+  loadGames();
 });
