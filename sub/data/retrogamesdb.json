@@ -1,14 +1,38 @@
 [
+    
+  /*Tekken Series:*/
+  {
+  "title": "Tekken",
+  "year": 1994,
+  "genre": "Fighting",
+  "platform": "Arcade / PS1",
+  "netplay": "Stable",
+  "description": "The original Tekken that introduced players to fast-paced 3D fighting and laid the groundwork for one of the most iconic franchises in gaming history.",
+  "image": "../../../images/database/retrogamedb/covers/tekken/ps1_cover_tekken1.jpg",
+  "fandom_wiki": "https://tekken.fandom.com/wiki/Tekken"
+  },
+  {
+    "title": "Tekken 2",
+    "year": 1995,
+    "genre": "Fighting",
+    "platform": "Arcade / PS1",
+    "netplay": "Stable",
+    "description": "Tekken 2 expanded on the original with new characters, stages and improved gameplay. A cornerstone title in the 3D fighting genre.",
+    "image": "../../../images/database/retrogamedb/covers/tekken/ps1_cover_tekken2.jpg",
+    "fandom_wiki": "https://tekken.fandom.com/wiki/Tekken_2"
+  },
   {
     "title": "Tekken 3",
     "year": 1997,
     "genre": "Fighting",
     "platform": "Arcade / PS1",
     "netplay": "Stable",
-    "description": "The classic 3D fighting game with fast gameplay and iconic characters.",
+    "description": "The 3rd Installment of the Classic 3D fighting game with fast gameplay and iconic characters.",
     "image": "../../../images/database/retrogamedb/covers/tekken/ps1_cover_tekken3.jpg",
     "fandom_wiki": "https://tekken.fandom.com/wiki/Tekken_3"
   },
+
+  /*Mortal Kombat Series:*/
   {
     "title": "Mortal Kombat 2",
     "year": 1993,
@@ -19,4 +43,5 @@
     "image": "../../../images/database/retrogamedb/covers/mortalkombat/ps1_cover_mk2.jpg",
     "fandom_wiki": "https://mortalkombat.fandom.com/wiki/Mortal_Kombat_II"
   }
+
 ]
