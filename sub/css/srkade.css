@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
-
 /* ========== BASE STYLES ========== */
 body {
   margin: 0;
@@ -9,6 +8,7 @@ body {
   overflow-x: hidden;
   line-height: 1.6;
   position: relative;
+  box-sizing: border-box;
 }
 
 .container {
@@ -29,37 +29,35 @@ a {
   text-decoration: underline;
 }
 
-
 p {
   color: #5ca3d3;
   font-family: "Roboto", sans-serif;
   font-optical-sizing: auto;
-  font-weight: <weight>;
+  font-weight: 400;
   font-style: normal;
-  font-variation-settings:
-    "wdth" 100;
+  font-variation-settings: "wdth" 100;
 }
+
 /* ========== HEADINGS ========== */
-h1, h2, h3, h4{
-  margin-top: 0.0;
-  margin-bottom: 0.2;
+h1, h2, h3, h4 {
+  margin-top: 0;
+  margin-bottom: 0.2rem;
   font-family: 'Press Start 2P', sans-serif;
   color: #19ebff;
 }
 
-.color-1 { color: #bbbbbb; }  /* Red */
-.color-2 { color: #ffffff; }  /* Red */
-.color-3 { color: #bbbbbb; }  /* Green */
-.color-4 { color: #ffffff; }  /* Blue */
-.color-5 { color: #5ca3d3; }  /* Gold */
+/* ========== COLOR CLASSES ========== */
+.color-1 { color: #bbbbbb; }  /* Light Gray */
+.color-2 { color: #ffffff; }  /* White */
+.color-3 { color: #bbbbbb; }  /* Light Gray */
+.color-4 { color: #ffffff; }  /* White */
+.color-5 { color: #5ca3d3; }  /* Cyan/Blue */
 
-.color-owners { color: #ffc800; }  /* Gold */
-.color-modteam { color: #ac0a9f; }  /* Gold */
-.color-support { color: #2e3cff; }  /* Gold */
+.color-owners   { color: #ffc800; } /* Gold */
+.color-modteam  { color: #ac0a9f; } /* Purple */
+.color-support  { color: #2e3cff; } /* Blue */
 
 /* ========== IMAGES & LOGOS ========== */
-
-
 .center-header-container {
   width: 100%;
   display: flex;
@@ -69,34 +67,17 @@ h1, h2, h3, h4{
 }
 
 .center-header-container img {
-  max-width: 500px; /* or any size you want */
+  max-width: 500px;
   height: auto;
 }
 
-/*.center-header-container {
-  max-width: 100px; Make smaller 
-  height: auto;     Maintain aspect ratio 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 2rem 0;  Adjust as needed 
-}*/
-
-.info-header {
-  max-width: 300px;
-  height: auto;
-  display: inline-block;
-  margin-bottom: 0rem; /* Adjust this value as needed */
-  vertical-align: middle; /* Helps align with inline text */
-}
-
+.info-header,
 .staff-header {
   max-width: 300px;
   height: auto;
   display: inline-block;
-  margin-bottom: 0rem; /* Adjust this value as needed */
-  vertical-align: middle; /* Helps align with inline text */
+  margin-bottom: 0;
+  vertical-align: middle;
 }
 
 /* ========== BUTTON ========== */
@@ -133,8 +114,8 @@ button:hover {
 
 /* ========== FOOTER ========== */
 footer {
-  background-color: #000000;
-  color: #000000;
+  background-color: #000;
+  color: #000;
   text-align: center;
   padding: 1.5em 0;
   font-family: 'Press Start 2P', cursive, monospace;
