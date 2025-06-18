@@ -6,12 +6,34 @@ fetch('sub/data/tournaments.json')
     return res.json();
   })
   .then(data => {
-    console.log('Tournaments fetched:', data);
+    const container = document.getElementById('tournament-list');
+    container.innerHTML = '';
 
-    // TODO: Display tournaments from data
-    // Example: renderTournaments(data);
+    const filtered = data.filter(t =>
+      /Tekken Ball|Tekken 8 Ball|Tekken 3 Ball|Tag 2 Ball/i.test(t.title)
+    );
+
+    if (filtered.length === 0) {
+      container.innerHTML = '<p>No matching tournaments found.</p>';
+      return;
+    }
+
+    filtered.forEach(t => {
+      const div = document.createElement('div');
+      div.className = 'tournament';
+      div.innerHTML = `
+        <h4>${t.title}</h4>
+        <p><strong>Date:</strong> ${t.date}</p>
+        ${t.location ? `<p><strong>Location:</strong> ${t.location}</p>` : ''}
+        ${t.description ? `<p>${t.description}</p>` : ''}
+      `;
+      container.appendChild(div);
+    });
   })
   .catch(error => {
     console.error('Error loading tournaments:', error);
-    // TODO: Show user-friendly error message in UI
+    const container = document.getElementById('tournament-list');
+    if (container) {
+      container.innerHTML = '<p>Error loading tournaments.</p>';
+    }
   });
