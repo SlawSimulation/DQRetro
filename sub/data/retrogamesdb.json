@@ -6,8 +6,8 @@
     "platform": "Arcade / PS1",
     "netplay": "Stable",
     "description": "The classic 3D fighting game with fast gameplay and iconic characters.",
-    "image": "images/games/tekken/tekken3.png",
-    "fandom/wiki": "https://tekken.fandom.com/wiki/Tekken_3"
+    "image": "https://static.wikia.nocookie.net/tekken/images/a/aa/Tekken_3_Boxart.jpg/revision/latest?cb=20140130214144&path-prefix=en",
+    "fandom_wiki": "https://tekken.fandom.com/wiki/Tekken_3"
   },
   {
     "title": "Mortal Kombat 2",
@@ -16,7 +16,7 @@
     "platform": "Arcade / Fightcade",
     "netplay": "Unstable",
     "description": "Blood, gore, and brutal fatalities made this a legendary fighting game.",
-    "image": "images/games/mortalkombat/mk2.png",
-    "fandom/wiki": "https://mortalkombat.fandom.com/wiki/Mortal_Kombat_II"
+    "image": "https://static.wikia.nocookie.net/mkwikia/images/2/29/326316-mortal-kombat-ii-playstation-front-cover.jpg/revision/latest?cb=20181017192545",
+    "fandom_wiki": "https://mortalkombat.fandom.com/wiki/Mortal_Kombat_II"
   }
 ]

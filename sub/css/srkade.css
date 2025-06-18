@@ -86,6 +86,14 @@ h1, h2, h3 {
   vertical-align: middle; /* Helps align with inline text */
 }
 
+.staff-header {
+  max-width: 300px;
+  height: auto;
+  display: inline-block;
+  margin-bottom: 0rem; /* Adjust this value as needed */
+  vertical-align: middle; /* Helps align with inline text */
+}
+
 /* ========== BUTTON ========== */
 button {
   background: #111;
