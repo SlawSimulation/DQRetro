@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
 
 /* ========== BASE STYLES ========== */
 body {
@@ -23,40 +25,66 @@ footer {
 }
 
 a {
-  color: #0ff;
+  color: #ffffff;
   text-decoration: underline;
 }
 
+
+p {
+  color: #5ca3d3;
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
 /* ========== HEADINGS ========== */
-h1 {
-  font-family: 'Bebas Neue', sans-serif;
-  color: #ffffff;
-}
-
-h2 {
-  font-family: 'Bebas Neue', sans-serif;
-  color: #ffffff;
-}
-
-h3 {
+h1, h2, h3 {
+  margin-top: 0.0;
   font-family: 'Press Start 2P', sans-serif;
-  color: #ffffff;
+  color: #19ebff;
 }
+
+.color-1 { color: #bbbbbb; }  /* Red */
+.color-2 { color: #ffffff; }  /* Red */
+.color-3 { color: #bbbbbb; }  /* Green */
+.color-4 { color: #ffffff; }  /* Blue */
+.color-5 { color: #5ca3d3; }  /* Gold */
 
 /* ========== IMAGES & LOGOS ========== */
-.logo {
-  max-width: 300px;
-  height: auto;
-  display: block;
+
+
+.center-header-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 0;
 }
+
+.center-header-container img {
+  max-width: 500px; /* or any size you want */
+  height: auto;
+}
+
+/*.center-header-container {
+  max-width: 100px; Make smaller 
+  height: auto;     Maintain aspect ratio 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem 0;  Adjust as needed 
+}*/
 
 .info-header {
   max-width: 300px;
   height: auto;
   display: inline-block;
+  margin-bottom: 0rem; /* Adjust this value as needed */
+  vertical-align: middle; /* Helps align with inline text */
 }
-
-
 
 /* ========== BUTTON ========== */
 button {
@@ -92,24 +120,19 @@ button:hover {
 
 /* ========== FOOTER ========== */
 footer {
-  background-color: #0b0b0b;
-  color: #ffd900;
+  background-color: #000000;
+  color: #000000;
   text-align: center;
   padding: 1.5em 0;
   font-family: 'Press Start 2P', cursive, monospace;
   font-size: 0.75rem;
   letter-spacing: 0.15em;
-  text-shadow:
-    0 0 5px #ffd900,
-    0 0 10px #000000,
-    0 0 20px #ffd900,
-    0 0 30px #ffd900;
-  border-top: 2px solid #ffd900;
+  border-top: 2px solid #19ebff;
   user-select: none;
 }
 
 footer a {
-  color: #ffd900;
+  color: #19ebff;
   text-decoration: none;
   margin: 0 0.6em;
   transition: color 0.3s ease, text-shadow 0.3s ease;
