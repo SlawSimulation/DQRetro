@@ -23,12 +23,12 @@ jobs:
       - name: Fetch Tournaments
         env:
           STARTGG_API_KEY: ${{ secrets.STARTGG_API_KEY }}
-        run: node scripts/fetch-tournaments.js
+        run: node sub/js/fetch-tournaments.js
 
       - name: Commit and Push updated tournament data
         run: |
           git config user.name "Start.gg Data Bot"
           git config user.email " start.gg-data@dqretro.com"
-          git add public/data/tournaments.json
+          git add sub/data/tournaments.json
           git diff --cached --quiet || git commit -m "Update tournament data"
           git push
