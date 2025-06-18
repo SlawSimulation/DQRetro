@@ -18,10 +18,6 @@ body {
   position: relative;
 }
 
-header {
-  
-}
-
 .logo {
   max-width: 300px; /* optional, control size */
   height: auto;
