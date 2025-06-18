@@ -1,6 +1,4 @@
 [
-    
-  /*Tekken Series:*/
   {
   "title": "Tekken",
   "year": 1994,
@@ -31,8 +29,6 @@
     "image": "../../../images/database/retrogamedb/covers/tekken/ps1_cover_tekken3.jpg",
     "fandom_wiki": "https://tekken.fandom.com/wiki/Tekken_3"
   },
-
-  /*Mortal Kombat Series:*/
   {
     "title": "Mortal Kombat 2",
     "year": 1993,
