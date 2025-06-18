@@ -40,8 +40,9 @@ p {
     "wdth" 100;
 }
 /* ========== HEADINGS ========== */
-h1, h2, h3 {
+h1, h2, h3, h4{
   margin-top: 0.0;
+  margin-bottom: 0.2;
   font-family: 'Press Start 2P', sans-serif;
   color: #19ebff;
 }
@@ -51,6 +52,10 @@ h1, h2, h3 {
 .color-3 { color: #bbbbbb; }  /* Green */
 .color-4 { color: #ffffff; }  /* Blue */
 .color-5 { color: #5ca3d3; }  /* Gold */
+
+.color-owners { color: #ffc800; }  /* Gold */
+.color-modteam { color: #ac0a9f; }  /* Gold */
+.color-support { color: #2e3cff; }  /* Gold */
 
 /* ========== IMAGES & LOGOS ========== */
 
