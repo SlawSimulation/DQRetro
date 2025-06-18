@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   async function loadGames() {
     try {
       const response = await fetch('../../data/retrogamesdb.json'); // adjust path as needed
-      if (!response.ok) throw new Error('Failed to load games.json');
+      if (!response.ok) throw new Error('Failed to load retrogamesdb.json');
       games = await response.json();
       renderGames();
     } catch (error) {

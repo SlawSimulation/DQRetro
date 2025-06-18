@@ -6,7 +6,7 @@
     "platform": "Arcade / PS1",
     "netplay": "Stable",
     "description": "The classic 3D fighting game with fast gameplay and iconic characters.",
-    "image": "images/database/retrogamedb/cover/logo_tekken3.jpg",
+    "image": "images/database/retrogamedb/covers/tekken/ps1_cover_tekken3.jpg",
     "fandom_wiki": "https://tekken.fandom.com/wiki/Tekken_3"
   },
   {
@@ -16,7 +16,7 @@
     "platform": "Arcade / Fightcade",
     "netplay": "Unstable",
     "description": "Blood, gore, and brutal fatalities made this a legendary fighting game.",
-    "image": "images/database/retrogamedb/cover/ps1_cover_mk2.jpg",
+    "image": "images/database/retrogamedb/covers/mortalkombat/ps1_cover_mk2.jpg",
     "fandom_wiki": "https://mortalkombat.fandom.com/wiki/Mortal_Kombat_II"
   }
 ]
