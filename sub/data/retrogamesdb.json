@@ -7,7 +7,7 @@
     "netplay": "Stable",
     "description": "The classic 3D fighting game with fast gameplay and iconic characters.",
     "image": "images/games/tekken/tekken3.png",
-    "setupLink": "setup/tekken3.html"
+    "fandom/wiki": "https://tekken.fandom.com/wiki/Tekken_3"
   },
   {
     "title": "Mortal Kombat 2",
@@ -17,7 +17,6 @@
     "netplay": "Unstable",
     "description": "Blood, gore, and brutal fatalities made this a legendary fighting game.",
     "image": "images/games/mortalkombat/mk2.png",
-    "setupLink": "setup/mk2.html"
+    "fandom/wiki": "https://mortalkombat.fandom.com/wiki/Mortal_Kombat_II"
   }
-  // Add more entries here as needed
 ]
