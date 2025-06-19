@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="game-info">${game.year} &bull; ${game.genre} &bull; ${game.platform}</div>
         <div class="game-info">Netplay: ${game.netplay}</div>
         <p class="game-description">${game.description}</p>
-        <a href="${game.wiki}" class="setup-link" target="_blank" rel="noopener">View Wiki</a>
+        <a href="${fandom.wiki}" class="setup-link" target="_blank" rel="noopener">View Wiki</a>
       </article>
     `).join('');
   }
