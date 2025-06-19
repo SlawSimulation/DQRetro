@@ -1,0 +1,43 @@
+[
+  {
+    "name": "Tekken Ball Ultimate Cup",
+    "startAt": 1751308800,
+    "city": "London",
+    "url": "https://www.start.gg/tournament/tekken-ball-ultimate-cup",
+    "description": "An intense showdown of classic Tekken Ball competition.",
+    "numAttendees": 64,
+    "brackets": [
+      {
+        "name": "Tekken Ball Singles",
+        "url": "https://www.start.gg/bracket/tekken-ball-ultimate-cup/singles"
+      },
+      {
+        "name": "Tekken Ball Doubles",
+        "url": "https://www.start.gg/bracket/tekken-ball-ultimate-cup/doubles"
+      }
+    ]
+  },
+  {
+    "name": "Tag 2 Ball Championship 2025",
+    "startAt": 1753910400,
+    "city": "Los Angeles",
+    "url": "https://www.start.gg/tournament/tag-2-ball-championship-2025",
+    "description": "Tag Tournament 2 Ball rules are back for a 2v2 blast!",
+    "numAttendees": 32,
+    "brackets": [
+      {
+        "name": "Tag 2 Ball Main Bracket",
+        "url": "https://www.start.gg/bracket/tag-2-ball-championship-2025/main"
+      }
+    ]
+  },
+  {
+    "name": "Tekken 3 Ball Retro Throwdown",
+    "startAt": 1756512000,
+    "city": "Tokyo",
+    "url": "https://www.start.gg/tournament/tekken-3-ball-retro-throwdown",
+    "description": "A classic throwback tournament using the legendary Tekken 3 Ball mode.",
+    "numAttendees": 48,
+    "brackets": []
+  }
+]

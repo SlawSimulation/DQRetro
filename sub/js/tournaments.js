@@ -1,39 +1,27 @@
 fetch('sub/data/tournaments.json')
-  .then(res => {
-    if (!res.ok) {
-      throw new Error(`Failed to fetch tournaments: ${res.status} ${res.statusText}`);
-    }
-    return res.json();
-  })
-  .then(data => {
+  .then(res => res.json())
+  .then(tournaments => {
     const container = document.getElementById('tournament-list');
     container.innerHTML = '';
 
-    const filtered = data.filter(t =>
-      /Tekken Ball|Tekken 8 Ball|Tekken 3 Ball|Tag 2 Ball/i.test(t.title)
-    );
-
-    if (filtered.length === 0) {
+    if (!tournaments.length) {
       container.innerHTML = '<p>No matching tournaments found.</p>';
       return;
     }
 
-    filtered.forEach(t => {
+    tournaments.forEach(t => {
       const div = document.createElement('div');
+      const date = new Date(t.startAt * 1000).toLocaleDateString();
       div.className = 'tournament';
       div.innerHTML = `
-        <h4>${t.title}</h4>
-        <p><strong>Date:</strong> ${t.date}</p>
-        ${t.location ? `<p><strong>Location:</strong> ${t.location}</p>` : ''}
-        ${t.description ? `<p>${t.description}</p>` : ''}
+        <h4>${t.name}</h4>
+        <p><strong>Date:</strong> ${date}</p>
+        <p><strong>City:</strong> ${t.city ?? 'TBA'}</p>
+        <a href="${t.url}" target="_blank">View Tournament</a>
       `;
       container.appendChild(div);
     });
   })
-  .catch(error => {
-    console.error('Error loading tournaments:', error);
-    const container = document.getElementById('tournament-list');
-    if (container) {
-      container.innerHTML = '<p>Error loading tournaments.</p>';
-    }
+  .catch(() => {
+    document.getElementById('tournament-list').innerText = 'Error loading tournaments.';
   });

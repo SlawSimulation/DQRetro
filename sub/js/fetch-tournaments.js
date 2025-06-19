@@ -1,73 +1,43 @@
-import fetch from 'node-fetch';
-import fs from 'fs/promises';
-
-const API_URL = 'https://api.start.gg/gql/alpha';
-const API_KEY = process.env.STARTGG_API_KEY;
-
-if (!API_KEY) {
-  console.error('Error: STARTGG_API_KEY environment variable is not set.');
-  process.exit(1);
-}
+const fs = require('fs');
+const fetch = require('node-fetch');
 
 const query = `
-  query Tournaments($perPage: Int!) {
-    tournaments(query: {perPage: $perPage}) {
-      nodes {
-        name
-        slug
-        startAt
-        city
-        countryCode
-        online
-      }
+query {
+  tournaments(query: {
+    perPage: 20,
+    page: 1,
+    filter: {
+      name: "Ball"
+    }
+  }) {
+    nodes {
+      name
+      startAt
+      city
+      url
     }
   }
+}
 `;
 
-async function fetchTournaments() {
-  try {
-    const response = await fetch(API_URL, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${API_KEY}`
-      },
-      body: JSON.stringify({
-        query,
-        variables: { perPage: 10 }
-      })
-    });
+fetch('https://api.start.gg/gql/alpha', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+    'Authorization': `Bearer ${process.env.STARTGG_TOKEN}`
+  },
+  body: JSON.stringify({ query })
+})
+  .then(res => res.json())
+  .then(data => {
+    const tournaments = data.data.tournaments.nodes.filter(t =>
+      /Tekken Ball|Tekken 8 Ball|Tekken 3 Ball|Tag 2 Ball/i.test(t.name)
+    );
 
-    if (!response.ok) {
-      throw new Error(`Network error: ${response.status} ${response.statusText}`);
-    }
-
-    const json = await response.json();
-
-    if (json.errors) {
-      throw new Error('GraphQL errors: ' + JSON.stringify(json.errors));
-    }
-
-    return json.data.tournaments.nodes;
-  } catch (error) {
-    console.error('Failed to fetch tournaments:', error);
-    return [];
-  }
-}
-
-async function saveTournamentsToFile(tournaments) {
-  try {
-    const filePath = './sub/data/tournaments.json';
-    await fs.writeFile(filePath, JSON.stringify(tournaments, null, 2), 'utf-8');
-    console.log(`Successfully wrote ${tournaments.length} tournaments to ${filePath}`);
-  } catch (error) {
-    console.error('Failed to write tournaments.json:', error);
-  }
-}
-
-async function main() {
-  const tournaments = await fetchTournaments();
-  await saveTournamentsToFile(tournaments);
-}
-
-main();
+    fs.writeFileSync('sub/data/tournaments.json', JSON.stringify(tournaments, null, 2));
+    console.log('Tournaments saved to sub/data/tournaments.json');
+  })
+  .catch(err => {
+    console.error('Failed to fetch tournaments:', err);
+    process.exit(1);
+  });
