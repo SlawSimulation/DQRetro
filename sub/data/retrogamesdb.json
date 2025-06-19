@@ -1,13 +1,13 @@
 [
   {
-  "title": "Tekken",
-  "year": 1994,
-  "genre": "Fighting",
-  "platform": "Arcade / PS1",
-  "netplay": "Stable",
-  "description": "The original Tekken that introduced players to fast-paced 3D fighting and laid the groundwork for one of the most iconic franchises in gaming history.",
-  "image": "../../../images/database/retrogamedb/covers/tekken/ps1_cover_tekken1.jpg",
-  "fandom_wiki": "https://tekken.fandom.com/wiki/Tekken"
+    "title": "Tekken",
+    "year": 1994,
+    "genre": "Fighting",
+    "platform": "Arcade / PS1",
+    "netplay": "Stable",
+    "description": "The original Tekken that introduced players to fast-paced 3D fighting and laid the groundwork for one of the most iconic franchises in gaming history.",
+    "image": "../../../images/database/retrogamedb/covers/tekken/ps1_cover_tekken1.jpg",
+    "fandom_wiki": "https://tekken.fandom.com/wiki/Tekken"
   },
   {
     "title": "Tekken 2",
