@@ -46,9 +46,10 @@ h1 {
 
 .game-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(4, 1fr); /* 4 equal-width columns */
+  gap: 1rem;
 }
+
 
 .game-card {
   background: #222;
