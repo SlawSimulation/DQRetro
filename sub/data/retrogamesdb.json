@@ -30,14 +30,33 @@
     "fandom_wiki": "https://tekken.fandom.com/wiki/Tekken_3"
   },
   {
+    "title": "Mortal Kombat",
+    "year": 1992,
+    "genre": "Fighting",
+    "platform": "Arcade / Fightcade",
+    "netplay": "Unstable",
+    "description": "The original gore-filled tournament that shocked arcades with digitized fighters and gruesome fatalities.",
+    "image": "../../../images/database/retrogamedb/covers/mortalkombat/mk1_cover_snes.jpg",
+    "fandom_wiki": "https://mortalkombat.fandom.com/wiki/Mortal_Kombat_(1992_video_game)"
+  },
+  {
     "title": "Mortal Kombat 2",
     "year": 1993,
     "genre": "Fighting",
     "platform": "Arcade / Fightcade",
     "netplay": "Unstable",
     "description": "Blood, gore, and brutal fatalities made this a legendary fighting game.",
-    "image": "../../../images/database/retrogamedb/covers/mortalkombat/ps1_cover_mk2.jpg",
+    "image": "../../../images/database/retrogamedb/covers/mortalkombat/mk2_cover_ps1.jpg",
     "fandom_wiki": "https://mortalkombat.fandom.com/wiki/Mortal_Kombat_II"
+  },
+  {
+    "title": "Mortal Kombat 3",
+    "year": 1995,
+    "genre": "Fighting",
+    "platform": "Arcade / Fightcade",
+    "netplay": "Unstable",
+    "description": "Faster gameplay, brutal new fatalities, and an expanded roster brought the fight to city streets and cyborg lairs.",
+    "image": "../../../images/database/retrogamedb/covers/mortalkombat/mk3_cover_snes.jpg",
+    "fandom_wiki": "https://mortalkombat.fandom.com/wiki/Mortal_Kombat_3"
   }
-
 ]
