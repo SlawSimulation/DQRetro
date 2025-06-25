@@ -5,184 +5,147 @@ const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fet
 const startggURL = "https://api.start.gg/gql/alpha";
 const startggKey = process.env.STARTGG_KEY;
 
-const SEARCH_QUERY = "Tekken Ball";  // keyword to search tournaments
+if (!startggKey) {
+    console.error("❌ Missing STARTGG_KEY in environment variables.");
+    process.exit(1);
+}
 
-// Search tournaments by name keyword
-const searchTournaments = async (query, page = 1) => {
-  try {
-    const res = await fetch(startggURL, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
-        Authorization: 'Bearer ' + startggKey
-      },
-      body: JSON.stringify({
-        query: `
-          query TournamentsQuery($query: String!, $page: Int) {
-            tournaments(query: $query, page: $page, perPage: 10) {
-              nodes {
-                id
-                name
-                slug
-                events {
-                  id
-                  name
-                  slug
-                }
-              }
-              pageInfo {
-                totalPages
-                total
-              }
-            }
-          }
-        `,
-        variables: { query, page }
-      })
-    });
+// Fetch event ID based on tournament and event slugs
+const getEventId = async (tournamentName, eventName) => {
+    const eventSlug = `tournament/${tournamentName}/event/${eventName}`;
+    console.log(`🔍 Querying Start.gg for event: ${eventSlug}`);
 
-    const data = await res.json();
-
-    if (data.errors) {
-      console.error("GraphQL error searching tournaments:", data.errors);
-      return null;
-    }
-
-    return data.data.tournaments;
-
-  } catch (err) {
-    console.error("Error searching tournaments:", err);
-    return null;
-  }
-};
-
-// Fetch completed matches for an event by ID (same as before)
-const getCompletedMatches = async (eventId) => {
-  try {
-    const res = await fetch(startggURL, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
-        Authorization: 'Bearer ' + startggKey
-      },
-      body: JSON.stringify({
-        query: `
-          query CompletedSets($eventId: ID!) {
-            event(id: $eventId) {
-              sets(page: 1, perPage: 10, filters: { state: 1 }) {
-                nodes {
-                  id
-                  winnerId
-                  slots {
-                    entrant {
-                      name
-                      participants {
-                        gamerTag
-                        user {
-                          id
-                          discriminator
+    try {
+        const res = await fetch(startggURL, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                Authorization: 'Bearer ' + startggKey
+            },
+            body: JSON.stringify({
+                query: `
+                    query EventQuery($slug: String) {
+                        event(slug: $slug) {
+                            id
+                            name
                         }
-                      }
                     }
-                  }
-                }
-              }
-            }
-          }
-        `,
-        variables: { eventId }
-      })
-    });
+                `,
+                variables: { slug: eventSlug }
+            })
+        });
 
-    const data = await res.json();
+        const data = await res.json();
 
-    if (data.errors) {
-      console.error("GraphQL error (sets):", data.errors);
-      return null;
-    }
-
-    const sets = data.data.event.sets.nodes;
-
-    // Map the data into a friendlier format
-    const results = sets.map((set, index) => {
-      const players = set.slots.map(slot => {
-        const entrant = slot.entrant;
-        return {
-          name: entrant?.name || "Unknown",
-          gamerTag: entrant?.participants?.[0]?.gamerTag || "Unknown",
-          discordId: entrant?.participants?.[0]?.user?.id || null
-        };
-      });
-
-      return {
-        matchNumber: index + 1,
-        setId: set.id,
-        winnerId: set.winnerId,
-        players
-      };
-    });
-
-    return results;
-
-  } catch (err) {
-    console.error("Error fetching sets:", err);
-    return null;
-  }
-};
-
-const main = async () => {
-  let page = 1;
-  const allResults = [];
-
-  while (true) {
-    console.log(`Searching tournaments for "${SEARCH_QUERY}", page ${page}...`);
-    const tournamentsData = await searchTournaments(SEARCH_QUERY, page);
-
-    if (!tournamentsData) break;
-
-    const tournaments = tournamentsData.nodes;
-    if (tournaments.length === 0) {
-      console.log("No more tournaments found.");
-      break;
-    }
-
-    for (const tournament of tournaments) {
-      console.log(`Found tournament: ${tournament.name} (slug: ${tournament.slug})`);
-
-      // Filter events if you want, e.g., only double elimination events
-      // Or fetch all events
-      const relevantEvents = tournament.events.filter(e => e.name.toLowerCase().includes("double elimination") || e.name.toLowerCase().includes("tekken"));
-
-      for (const event of relevantEvents) {
-        console.log(`  Fetching matches for event: ${event.name} (ID: ${event.id})`);
-        const completedMatches = await getCompletedMatches(event.id);
-
-        if (completedMatches && completedMatches.length > 0) {
-          allResults.push({
-            tournament: tournament.name,
-            tournamentSlug: tournament.slug,
-            event: event.name,
-            eventId: event.id,
-            completedMatches
-          });
-        } else {
-          console.log(`  No completed matches found for event ${event.name}`);
+        if (data.errors) {
+            console.error("❌ GraphQL error:", JSON.stringify(data.errors, null, 2));
+            return;
         }
-      }
-    }
 
-    // Stop if we reached last page
-    if (page >= tournamentsData.pageInfo.totalPages) {
-      break;
-    }
-    page++;
-  }
+        if (!data.data || !data.data.event) {
+            console.error("❌ No event found. Check your tournament or event slugs.");
+            console.log("📭 Raw response:", JSON.stringify(data, null, 2));
+            return;
+        }
 
-  // Save all results to JSON
-  fs.writeFileSync('completed_tournaments_sets.json', JSON.stringify(allResults, null, 2));
-  console.log("All results saved to completed_tournaments_sets.json");
+        const eventId = data.data.event.id;
+        console.log(`✅ Found Event ID: ${eventId} (${data.data.event.name})`);
+
+        // Proceed to fetch completed sets
+        await getCompletedMatches(eventId);
+
+    } catch (err) {
+        console.error("❌ Request failed:", err);
+    }
 };
 
-main();
+// Fetch completed matches for an event by ID
+const getCompletedMatches = async (eventId) => {
+    console.log(`📦 Fetching completed sets for Event ID: ${eventId}`);
+
+    try {
+        const res = await fetch(startggURL, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                Authorization: 'Bearer ' + startggKey
+            },
+            body: JSON.stringify({
+                query: `
+                    query CompletedSets($eventId: ID!) {
+                        event(id: $eventId) {
+                            sets(page: 1, perPage: 10, filters: { state: 1 }) {
+                                nodes {
+                                    id
+                                    winnerId
+                                    slots {
+                                        entrant {
+                                            name
+                                            participants {
+                                                gamerTag
+                                                user {
+                                                    id
+                                                    discriminator
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                `,
+                variables: { eventId }
+            })
+        });
+
+        const data = await res.json();
+
+        if (data.errors) {
+            console.error("❌ GraphQL error (sets):", JSON.stringify(data.errors, null, 2));
+            return;
+        }
+
+        const sets = data.data?.event?.sets?.nodes || [];
+
+        if (sets.length === 0) {
+            console.log("ℹ️ No completed sets found for this event.");
+            return;
+        }
+
+        const results = sets.map((set, index) => {
+            const players = set.slots.map(slot => {
+                const entrant = slot.entrant;
+                return {
+                    name: entrant?.name || "Unknown",
+                    gamerTag: entrant?.participants?.[0]?.gamerTag || "Unknown",
+                    discordId: entrant?.participants?.[0]?.user?.id || null,
+                    twitchId: entrant?.participants?.[0]?.user?.id || null
+                };
+            });
+
+            return {
+                matchNumber: index + 1,
+                setId: set.id,
+                winnerId: set.winnerId,
+                players
+            };
+        });
+
+        console.log("✅ Completed Sets:\n", JSON.stringify(results, null, 2));
+
+        fs.writeFileSync('completed_sets.json', JSON.stringify(results, null, 2));
+        console.log("💾 Saved results to completed_sets.json");
+
+    } catch (err) {
+        console.error("❌ Error fetching sets:", err);
+    }
+};
+
+// Start the fetch process
+getEventId(
+    'dq-retro-tekken-8-ball-bi-monthly-tournament-2',
+    'tekken-8-ball-round-robin'
+);
