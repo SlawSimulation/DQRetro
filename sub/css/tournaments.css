@@ -1,21 +1,42 @@
-#tournament-list {
-  margin-top: 1em;
+#bracket-container {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding: 1rem;
 }
 
-.tournament {
-  border: 1px solid #0ff;
-  padding: 1em;
-  margin-bottom: 1em;
-  background-color: #111;
-  color: #0ff;
-  font-family: monospace;
+.round {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  min-width: 200px;
+}
+
+.match {
+  background: #222;
+  color: white;
+  padding: 10px;
   border-radius: 6px;
+  box-shadow: 0 0 8px #007acc;
+  position: relative;
 }
 
-.tournament h4 {
-  margin: 0 0 0.5em 0;
+.match.winner {
+  border: 2px solid #0f0;
+  font-weight: bold;
 }
 
-.tournament p {
-  margin: 0.3em 0;
+.player {
+  padding: 4px 0;
+}
+
+/* Simple vertical line connector */
+.match:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  width: 2px;
+  height: 20px;
+  background: #0f0;
 }
