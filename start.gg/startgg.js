@@ -3,10 +3,10 @@ const fs = require('fs');
 const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
 
 const startggURL = "https://api.start.gg/gql/alpha";
-const startggKey = process.env.STARTGG_KEY;
+const startggKey = process.env.STARTGG_API_KEY;
 
 if (!startggKey) {
-    console.error("❌ Missing STARTGG_KEY in environment variables.");
+    console.error("❌ Missing STARTGG_API_KEY in environment variables.");
     process.exit(1);
 }
 
@@ -121,8 +121,7 @@ const getCompletedMatches = async (eventId) => {
                 return {
                     name: entrant?.name || "Unknown",
                     gamerTag: entrant?.participants?.[0]?.gamerTag || "Unknown",
-                    discordId: entrant?.participants?.[0]?.user?.id || null,
-                    twitchId: entrant?.participants?.[0]?.user?.id || null
+                    discordId: entrant?.participants?.[0]?.user?.id || null
                 };
             });
 
