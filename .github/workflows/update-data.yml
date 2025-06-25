@@ -23,7 +23,7 @@ jobs:
       - name: Run fetch script
         run: node start.gg/startgg.js
         env:
-          STARTGG_KEY: ${{ secrets.STARTGG_API_KEY }}
+          STARTGG_KEY: ${{ secrets.STARTGG_KEY }}
 
       - name: Commit and push changes
         run: |
