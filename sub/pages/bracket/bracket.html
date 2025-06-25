@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tournament Bracket</title>
+  <link rel="stylesheet" href="../../css/bracket.css" />
+</head>
+<body>
+  <div class="site-canvas" id="app">
+    <!-- Winners Bracket -->
+    <div class="brackets-canvas">
+      <h2>Winners Bracket</h2>
+      <div class="column" v-for="column in winnersColumns" :key="column.name">
+        <h3 class="round-title">{{ column.name }}</h3>
+        <template v-for="(item, index) in column.items" :key="item.number">
+          <div class="number">{{ item.number }}</div>
+          <div class="item" :class="{ 'show-brackets': index % 2 == 0 && column.items.length > 1 }" :key="item.number + '-item'">
+            <div class="box">
+              <div class="part partOne">
+                <div class="value">{{ item.participantOne.value }}</div>
+                <div class="score">0</div>
+              </div>
+              <div class="part partTwo">
+                <div class="value">{{ item.participantTwo.value }}</div>
+                <div class="score">0</div>
+              </div>
+            </div>
+            <div class="bracket">
+              <span></span>
+            </div>
+          </div>
+        </template>
+      </div>
+    </div>
+
+    <!-- Losers Bracket -->
+    <div class="brackets-canvas">
+      <h2>Losers Bracket</h2>
+      <div class="column" v-for="column in losersColumns" :key="column.name">
+        <h3 class="round-title">{{ column.name }}</h3>
+        <template v-for="(item, index) in column.items" :key="item.number">
+          <div class="number">{{ item.number }}</div>
+          <div class="item" :class="{ 'show-brackets': index % 2 == 0 && column.items.length > 1 }" :key="item.number + '-item'">
+            <div class="box">
+              <div class="part partOne">
+                <div class="value">{{ item.participantOne.value }}</div>
+                <div class="score">0</div>
+              </div>
+              <div class="part partTwo">
+                <div class="value">{{ item.participantTwo.value }}</div>
+                <div class="score">0</div>
+              </div>
+            </div>
+            <div class="bracket">
+              <span></span>
+            </div>
+          </div>
+        </template>
+      </div>
+    </div>
+  </div>
+
+  <!-- Load Vue FIRST -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.2.4/vue.js"></script>
+
+  <!-- Then load your custom JS that uses Vue -->
+  <script src="../../js/bracket.js"></script>
+</body>
+</html>
