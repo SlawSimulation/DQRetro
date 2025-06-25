@@ -8,42 +8,50 @@
   <link rel="stylesheet" href="sub/css/tournaments.css" />
   <link rel="stylesheet" href="sub/css/scanlines.css" />
   <link rel="stylesheet" href="sub/css/sidebar.css" />
+  <link rel="stylesheet" href="sub/css/bracket.css" />
+  <link rel="stylesheet" href="sub/css/bracket_beta.css" />
 </head>
 <body>
   <div class="crt-overlay"></div>
   <div class="scanlines"></div>
-    <button id="sidebar-toggle" aria-label="Toggle sidebar" aria-expanded="false">☰</button>
-      <aside class="sidebar">
-        <nav>
-          <ul class="nav-links">
-            <li><a href="index.html"><img src="images/assets/dqretro/logo/DQ-Retro-Logo-Blue-Light-(SRKADE).png" alt="DQRetro Logo" style="height: 40px;" /></a></li>
-            <li><a href="gallery.html">Gallery</a></li>
-            <li><a href="tournaments.html">Tournaments</a></li>
-            <li><a href="downloads.html">Downloads</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="srkade.html"><img src="images/assets/srkade/logo/SRKade.png" alt="SRKade Logo" style="height: 25px;" /></a></li>
+  
+  <button id="sidebar-toggle" aria-label="Toggle sidebar" aria-expanded="false">☰</button>
+  <aside class="sidebar">
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html"><img src="images/assets/dqretro/logo/DQ-Retro-Logo-Blue-Light-(SRKADE).png" alt="DQRetro Logo" style="height: 40px;" /></a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="tournaments.html">Tournaments</a></li>
+        <li><a href="downloads.html">Downloads</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="srkade.html"><img src="images/assets/srkade/logo/SRKade.png" alt="SRKade Logo" style="height: 25px;" /></a></li>
       </ul>
     </nav>
   </aside>
-  </div>
-  </div>
+  
   <main class="container">
     <header>
        <img src="images/assets/dqretro/logo/DQ-Retro-Logo-Golden.png" alt="DQRetro Community Hub Logo" class="logo" />
     </header>
 
-    <section id="tournaments">
-      <h1>Upcoming Tournaments</h1>
-      <div id="tournament-list">Loading tournaments...</div>
-    </section>
+    <!--<section id="tournaments">
+      <div class="site-canvas" id="bracket-container">
+        <h2>Winners Bracket</h2>
+        <div id="bracket">
+        </div>
+      </div>
+    </section>-->
+
+      <h1>Tekken Ball Tournament Matches</h1>
+      <div id="content">Loading tournaments...</div>
 
     <footer>
-    <p>© 2025 DQRetro Community Hub. All rights reserved.</p>
+      <p>© 2025 DQRetro Community Hub. All rights reserved.</p>
     </footer>
   </main>
 
   <script src="sub/js/sidebar.js" defer></script>
-  <script src="sub/js/tournaments.js" defer></script>
-
+  <script src="sub/js/bracket.js" defer></script>
+  <script src="sub/js/bracket_beta.js" defer></script>
 </body>
 </html>
